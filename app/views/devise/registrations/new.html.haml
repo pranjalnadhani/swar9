@@ -1,0 +1,21 @@
+.col-sm-3
+.well.col-sm-6
+  %center
+    %legend
+      %h2 Register for an account!
+
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = f.error_notification
+
+    .form-inputs
+      = f.input :email, required: true, autofocus: true
+      = f.input :password, required: true
+      = f.input :password_confirmation, required: true, label: "Confirm"
+
+    .form-group
+      .col-sm-offset-3.col-sm-9
+        = f.submit "Sign up", class: "btn btn-primary"
+
+  = render "devise/shared/links"
+  
+.col-sm-3

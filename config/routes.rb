@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
   
+  # Devise paths
+  devise_for :users
+  
+  # Custom Devise links
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+    get "/register" => "devise/registrations#new"
+  end
+  
   # Root path
   root to: 'home#index'
   
